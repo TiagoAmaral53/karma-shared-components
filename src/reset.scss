@@ -1,0 +1,106 @@
+/* reset.scss */
+.karma-components {
+
+    /* Remove margens, paddings e bordas padrões */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Remove lista de estilo padrão */
+    ul,
+    ol {
+        list-style: none;
+    }
+
+    /* Remove sublinhado e cor padrão dos links */
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* Remove espaçamento em inputs, buttons e textarea */
+    input,
+    button,
+    textarea,
+    select {
+        font: inherit;
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: none;
+        outline: none;
+    }
+
+    /* Definir largura completa para imagens, vídeos e embeds */
+    img,
+    video,
+    iframe {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* Remove as decorações padrão de campos de formulário */
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    /* Definir tamanho e altura de fonte padrão */
+    html {
+        font-size: 100%;
+        line-height: 1.5;
+    }
+
+    /* Definir altura mínima da viewport */
+    body {
+        min-height: 100vh;
+        text-rendering: optimizeLegibility;
+        font-family: sans-serif;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Remove sublinhado de links visitados */
+    a:visited {
+        color: inherit;
+    }
+
+    /* Remove borda ao focar em elementos interativos no Firefox */
+    a:focus,
+    button:focus,
+    input:focus,
+    textarea:focus {
+        outline: none;
+    }
+
+    /* Definir estilo de cabeçalhos */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: normal;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    /* Estilo para elementos de tabela */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 0.5em;
+        text-align: left;
+    }
+}

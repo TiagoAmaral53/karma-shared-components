@@ -26,16 +26,22 @@ export default [
             external(),
             resolve({ extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss'] }),
             commonjs(),
+            postcss({ // Adicione o plugin postcss
+                extensions: ['.css', '.scss'],
+                modules: {
+                    generateScopedName: '[name]__[local]___[hash:base64:5]',  // Gera classes únicas para CSS Modules
+                },
+                use: [
+                    ['sass', { includePaths: ['./src/reset.scss'] }]
+                ],
+                extract: true, // Extrai para um arquivo CSS separado
+                minimize: true,
+            }),
             babel({
                 babelHelpers: 'bundled',
                 exclude: 'node_modules/**',
                 presets: [['@babel/preset-react', { "runtime": "automatic" }]],
                 extensions: ['.js', '.jsx', '.ts', '.tsx']
-            }),
-            postcss({ // Adicione o plugin postcss
-                extensions: ['.css', '.scss'],
-                extract: 'index.css',
-                minimize: true,
             }),
             terser()
 

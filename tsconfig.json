@@ -5,7 +5,7 @@
     "esModuleInterop": true, 
     "forceConsistentCasingInFileNames": true,
     "strict": true, 
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "baseUrl": "./",
 
     // Added
@@ -22,7 +22,6 @@
       "*": ["node_modules/*", "src/*"]  // Adicione caminhos se necessário
     }
   },
- "include": [   
-  "src/**/*",
-    "src/types"] 
+ "include": [ "src/**/*","src/types"],
+ "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts","**/*.test.tsx"]
 }
