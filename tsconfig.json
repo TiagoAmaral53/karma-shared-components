@@ -1,24 +1,37 @@
 {
   "compilerOptions": {
     // Default
-    "target": "es5", 
-    "esModuleInterop": true, 
+    "target": "es5",
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "strict": true, 
+    "strict": true,
     "skipLibCheck": true,
-    "baseUrl": "./",
-
     // Added
     "jsx": "react-jsx",
-    "module": "ESNext",  
+    "module": "ESNext",
     "declaration": true,
     "sourceMap": true,
     "declarationDir": "./dist/types", // Diretório onde as declarações serão geradas
-    "outDir": "./dist",     
+    "outDir": "./dist",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
+    "baseUrl": ".",
+    "paths": {
+      "@karma/*": [
+        "src/*"
+      ]
+    }
   },
- "include": [ "src/**/*","src/types"],
- "exclude": ["node_modules", "**/*.test.ts","**/*.test.tsx"]
+  "include": [
+    "src/**/*",
+    "src/types",
+    "components/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.stories.ts"
+  ]
 }

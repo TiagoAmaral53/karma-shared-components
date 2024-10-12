@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-vite";
+import path from 'path'; // Importar o módulo path
 
 const config: StorybookConfig = {
   stories: [
@@ -16,5 +17,19 @@ const config: StorybookConfig = {
     name: "@storybook/react-vite",
     options: {},
   },
+  async viteFinal(config) {
+    // Verifique se config.resolve está definido
+    if (!config.resolve) {
+      config.resolve = {}; // Inicializa config.resolve se for undefined
+    }
+
+    // Adicionar o alias
+    config.resolve.alias = {
+      '@karma': path.resolve(__dirname, '../src'),
+      ...config.resolve.alias
+    };
+    return config;
+  },
 };
+
 export default config;

@@ -1,6 +1,8 @@
 module.exports = {
+    preset: 'ts-jest',
     testEnvironment: 'jsdom',
     moduleNameMapper: {
-        ".(css|less|scss)$": "identity-obj-proxy",
-    },
+        '^@karma/(.*)$': '<rootDir>/src/$1',
+        '\\.(css|less|scss)$': 'identity-obj-proxy',
+    }
 };

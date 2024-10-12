@@ -4,8 +4,13 @@ import external from 'rollup-plugin-peer-deps-external';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import packageJson from "./package.json" assert { type: "json" };
-import dts from 'rollup-plugin-dts'; // Adicione isso para gerar arquivos de tipos
+import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
+import alias from '@rollup/plugin-alias';
+import { dirname, resolve as pathResolve } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default [
     {
@@ -24,18 +29,20 @@ export default [
         ],
         plugins: [
             external(),
+            alias({
+                entries: [
+                    {
+                        find: '@karma',
+                        replacement: pathResolve(__dirname, 'src'),
+                    }
+                ]
+            }),
             resolve({ extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss'] }),
             commonjs(),
             postcss({ // Adicione o plugin postcss
-                extensions: ['.css', '.scss'],
-                modules: {
-                    generateScopedName: '[name]__[local]___[hash:base64:5]',  // Gera classes únicas para CSS Modules
-                },
-                use: [
-                    ['sass', { includePaths: ['./src/reset.scss'] }]
-                ],
-                extract: true, // Extrai para um arquivo CSS separado
+                extract: true, // Não extrair para um arquivo CSS
                 minimize: true,
+                modules: false,
             }),
             babel({
                 babelHelpers: 'bundled',
@@ -51,6 +58,6 @@ export default [
         input: 'dist/types/index.d.ts', // Mude isso para apontar para o diretório correto
         output: [{ file: 'dist/esm/index.d.ts', format: 'es' }], // Gera o bundle das declarações
         plugins: [dts()],
-        external: [/\.scss$/],// Use o plugin dts para gerar declarações
+        external: [/\.css$/, /\.scss$/],  // Ignorar arquivos CSS/SCSS ao gerar declarações de tipos
     }
 ]
