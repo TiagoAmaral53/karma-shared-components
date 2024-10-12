@@ -1,0 +1,22 @@
+{
+  "name": "karma-shared-components",
+  "version": "0.0.1",
+  "description": "Shared library design systems using atomic methodology",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "atomic-desing",
+    "shared-library",
+    "karma-components"
+  ],
+  "author": "Tiago Amaral",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.3.11",
+    "react": "^18.3.1",
+    "typescript": "^5.6.3"
+  }
+}
