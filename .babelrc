@@ -1,0 +1,7 @@
+{
+    "presets": [
+      "@babel/preset-env",         // Para suportar a sintaxe moderna do JavaScript
+      "@babel/preset-react",       // Para suportar JSX
+      "@babel/preset-typescript"   // Para suportar TypeScript
+    ]
+  }
