@@ -3,7 +3,7 @@ export interface ButtonProps {
 }
 
 const Button = (props: ButtonProps) => {
-    return <button>{props.label}</button>;
+    return <div className="karma-components"><button>{props.label}</button></div>;
 };
 
 export default Button;

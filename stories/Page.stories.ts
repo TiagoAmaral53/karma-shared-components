@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { expect, userEvent, within } from '@storybook/test';
 
 import { Page } from './Page';
 
@@ -15,4 +16,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const LoggedOut: Story = {};
+
+// More on interaction testing: https://storybook.js.org/docs/writing-tests/interaction-testing
 export const LoggedIn: Story = {};

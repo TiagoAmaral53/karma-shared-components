@@ -1,2 +1,2 @@
-import{jsx as r}from"react/jsx-runtime";var t=function(t){return r("button",{children:t.label})},n=function(t){return r("button",{children:t.label})};export{t as Button,n as MyName};
+import{jsx as n}from"react/jsx-runtime";var r=function(r){return n("div",{className:"karma-components",children:n("button",{children:r.label})})},t=function(r){return n("button",{children:r.label})};export{r as Button,t as MyName};
 //# sourceMappingURL=index.js.map
