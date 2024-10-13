@@ -36,13 +36,13 @@ const chunks = (id) => {
     return 'organisms'; // Organismos em um chunk separado
   }
   if (id.includes('src/components/pages')) {
-    return 'organisms'; // Organismos em um chunk separado
+    return 'pages'; // Organismos em um chunk separado
   }
   if (id.includes('src/components/templates')) {
-    return 'organisms'; // Organismos em um chunk separado
+    return 'templates'; // Organismos em um chunk separado
   }
   if (id.includes('src/components/ui')) {
-    return 'organisms'; // Organismos em um chunk separado
+    return 'ui'; // Organismos em um chunk separado
   }
   return null; // Outros componentes ficam no chunk principal
 };

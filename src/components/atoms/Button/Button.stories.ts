@@ -32,6 +32,8 @@ export const Component: Story = {
 export const Component1: Story = {
   args: {
     label: 'trigger',
-    onClick: () => { alert('hello world'); },
+    onClick: () => {
+      alert('hello world');
+    },
   },
 };

@@ -1,5 +1,11 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 
+interface ButtonProps {
+    label: string;
+    onClick?: () => void;
+}
+declare const Buttons: (props: ButtonProps) => react_jsx_runtime.JSX.Element;
+
 interface AtomProps {
     label: string;
 }
@@ -25,4 +31,4 @@ interface TemplateProps {
 }
 declare const Template: (props: TemplateProps) => react_jsx_runtime.JSX.Element;
 
-export { Atom, Molecule, Organism, Page, Template };
+export { Atom, Buttons as Button, Molecule, Organism, Page, Template };

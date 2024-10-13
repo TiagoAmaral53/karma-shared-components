@@ -1,2 +1,2 @@
-import{jsxs as e,jsx as a}from"react/jsx-runtime";var i=function(i){return e("div",{className:"organism",children:[a("h1",{children:"This is a organism"}),i.label]})},r=function(i){return e("div",{className:"page",children:[a("h1",{children:"This is a page"}),i.label]})},n=function(i){return e("div",{className:"template",children:[a("h1",{children:"This is a template"}),i.label]})};export{i as O,r as P,n as T};
+import{jsxs as r,jsx as i}from"react/jsx-runtime";var a=function(a){return r("div",{className:"organism",children:[i("h1",{children:"This is a organism"}),a.label]})};export{a as O};
 //# sourceMappingURL=organisms.js.map

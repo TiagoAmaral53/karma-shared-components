@@ -1,2 +1,2 @@
-"use strict";var e=require("react/jsx-runtime");exports.Organism=function(s){return e.jsxs("div",{className:"organism",children:[e.jsx("h1",{children:"This is a organism"}),s.label]})},exports.Page=function(s){return e.jsxs("div",{className:"page",children:[e.jsx("h1",{children:"This is a page"}),s.label]})},exports.Template=function(s){return e.jsxs("div",{className:"template",children:[e.jsx("h1",{children:"This is a template"}),s.label]})};
+"use strict";var r=require("react/jsx-runtime");exports.Organism=function(s){return r.jsxs("div",{className:"organism",children:[r.jsx("h1",{children:"This is a organism"}),s.label]})};
 //# sourceMappingURL=organisms.js.map
