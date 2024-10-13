@@ -71,7 +71,7 @@ export default [
             resolve({ extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss'] }),
             commonjs(),
             postcss({ // Adicione o plugin postcss
-                extract: true, // Não extrair para um arquivo CSS
+                extract: "karma.css", // Não extrair para um arquivo CSS
                 minimize: true,
                 modules: false,
             }),
