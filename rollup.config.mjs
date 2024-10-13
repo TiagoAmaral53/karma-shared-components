@@ -25,6 +25,7 @@ export default [
             Organism: 'src/components/organisms/Organism/index.ts',
             Page: 'src/components/pages/Page/index.ts',
             Template: 'src/components/templates/Template/index.ts',
+            global: 'src/global.css'
         },
         output: [
             /*             {
