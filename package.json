@@ -16,7 +16,10 @@
     "storybook": "storybook dev -p 6006",
     "cssGenerate": "npx tailwindcss -i ./src/index.css -o ./src/global.css",
     "cssGenerateWatch": "npx tailwindcss -i ./src/index.css -o ./src/global.css --watch",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "patch": "npm version patch",
+    "minor": "npm version minor",
+    "major": "npm version major"
   },
   "keywords": [
     "react",

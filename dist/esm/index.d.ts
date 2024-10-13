@@ -1,13 +1,28 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 
-interface ButtonProps$1 {
+interface AtomProps {
     label: string;
 }
-declare const Buttons: (props: ButtonProps$1) => react_jsx_runtime.JSX.Element;
+declare const Atom: (props: AtomProps) => react_jsx_runtime.JSX.Element;
 
-interface ButtonProps {
+interface MoleculeProps {
     label: string;
 }
-declare const MyName: (props: ButtonProps) => react_jsx_runtime.JSX.Element;
+declare const Molecule: (props: MoleculeProps) => react_jsx_runtime.JSX.Element;
 
-export { Buttons as Button, MyName };
+interface OrganismProps {
+    label: string;
+}
+declare const Organism: (props: OrganismProps) => react_jsx_runtime.JSX.Element;
+
+interface PageProps {
+    label: string;
+}
+declare const Page: (props: PageProps) => react_jsx_runtime.JSX.Element;
+
+interface TemplateProps {
+    label: string;
+}
+declare const Template: (props: TemplateProps) => react_jsx_runtime.JSX.Element;
+
+export { Atom, Molecule, Organism, Page, Template };
