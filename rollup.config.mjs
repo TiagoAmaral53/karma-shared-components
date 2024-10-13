@@ -10,6 +10,8 @@ import { dirname, resolve as pathResolve } from 'path';
 import { fileURLToPath } from 'url';
 import autoprefixer from 'autoprefixer';
 import scss from 'rollup-plugin-scss'; // Adicione esta linha para importar o plugin SCSS
+import glob from 'glob';
+
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
