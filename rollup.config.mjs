@@ -28,7 +28,17 @@ export default [
             }
         ],
         plugins: [
-            external(),
+            external((id) => {
+                const whitelist = ['some-package', 'another-package'];
+
+                console.log("adding dependency=>>>>>>>>>>>>>>>>>", id);
+
+                // Ignora todos os pacotes de node_modules, exceto os que estão na whitelist
+                return (
+                    !whitelist.includes(id) &&
+                    (id in pkg.dependencies || id in pkg.peerDependencies || builtinModules.includes(id))
+                );
+            }),
             alias({
                 entries: [
                     {
