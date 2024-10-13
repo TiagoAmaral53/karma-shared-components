@@ -19,13 +19,8 @@ export default [
     {
         //input: './src/index.ts', # compile everything in one file
         input: {
-            Atom: 'src/components/atoms/Atom/index.ts',
-            //Button: 'src/components/atoms/Button/index.ts',
-            Molecule: 'src/components/molecules/Molecule/index.ts',
-            Organism: 'src/components/organisms/Organism/index.ts',
-            Page: 'src/components/pages/Page/index.ts',
-            Template: 'src/components/templates/Template/index.ts',
-            global: 'src/global.css'
+            global: 'src/global.css',
+            index: 'src/components/index.ts',
         },
         output: [
             /*             {
