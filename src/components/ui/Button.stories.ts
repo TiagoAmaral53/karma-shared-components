@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Button, ButtonProps } from './button';
+import { sizeArgType, variantArgType } from '../../../.storybook/type';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -13,7 +14,8 @@ const meta = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
-    variant: { control: 'radio', options: ['destructive', 'outline', 'secondary', 'ghost', 'link', 'default'] },
+    variant: variantArgType,
+    size: sizeArgType
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {
