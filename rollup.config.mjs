@@ -3,35 +3,54 @@ import resolve from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
-import packageJson from "./package.json" assert { type: "json" };
 import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
 import alias from '@rollup/plugin-alias';
 import { dirname, resolve as pathResolve } from 'path';
 import { fileURLToPath } from 'url';
+import autoprefixer from 'autoprefixer';
+import scss from 'rollup-plugin-scss'; // Adicione esta linha para importar o plugin SCSS
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default [
     {
-        input: './src/index.ts',
+        //input: './src/index.ts', # compile everything in one file
+        input: {
+            Atom: 'src/components/atoms/Atom/index.ts',
+            //Button: 'src/components/atoms/Button/index.ts',
+            Molecule: 'src/components/molecules/Molecule/index.ts',
+            Organism: 'src/components/organisms/Organism/index.ts',
+            Page: 'src/components/pages/Page/index.ts',
+            Template: 'src/components/templates/Template/index.ts',
+        },
         output: [
+            /*             {
+                            // output to directory
+                            file: packageJson.module,
+                            format: 'es',
+                            sourcemap: true,
+                        }, */
             {
-                file: packageJson.main,
+                dir: 'dist/cjs',
                 format: 'cjs',
-                sourcemap: true
+                sourcemap: true,
+                entryFileNames: '[name].js',  // Isso define que o nome do arquivo será baseado no nome da entrada
+                chunkFileNames: 'chunks/[name]-[hash].js',
             },
             {
-                file: packageJson.module,
+                dir: 'dist/esm',
                 format: 'es',
-                sourcemap: true
+                sourcemap: true,
+                entryFileNames: '[name].js',  // Isso define que o nome do arquivo será baseado no nome da entrada
+                chunkFileNames: 'chunks/[name]-[hash].js',
             }
         ],
         plugins: [
             external((id) => {
                 const whitelist = ['some-package', 'another-package'];
 
-                console.log("adding dependency=>>>>>>>>>>>>>>>>>", id);
+                console.log("Verificando pacote externo:", id);
 
                 // Ignora todos os pacotes de node_modules, exceto os que estão na whitelist
                 return (
