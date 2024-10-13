@@ -1,1 +1,1 @@
-export { default } from "./Organism";
+export { default } from './Organism';

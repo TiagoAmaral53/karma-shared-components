@@ -1,12 +1,12 @@
 {
-    "presets": [
-      [
-        "@babel/preset-react",
-        {
-          "runtime": "automatic",
-        }
-      ],
-      "@babel/preset-env",         // Para suportar a sintaxe moderna do JavaScript
-      "@babel/preset-typescript"   // Para suportar TypeScript
-    ]
-  }
+  "presets": [
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic"
+      }
+    ],
+    "@babel/preset-env", // Para suportar a sintaxe moderna do JavaScript
+    "@babel/preset-typescript" // Para suportar TypeScript
+  ]
+}

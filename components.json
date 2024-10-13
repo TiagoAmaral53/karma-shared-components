@@ -1,15 +1,15 @@
 {
-    "style": "default",
-    "rsc": true,
-    "tailwind": {
-        "config": "tailwind.config.js",
-        "css": "src/globals.css",
-        "baseColor": "neutral",
-        "cssVariables": false
-    },
-    "aliases": {
-        "components": "@/components",
-        "utils": "@/lib/utils"
-    },
-    "componentDirectory": "src/shadcn/components"
+  "style": "default",
+  "rsc": true,
+  "tailwind": {
+    "config": "tailwind.config.js",
+    "css": "src/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": false
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils"
+  },
+  "componentDirectory": "src/shadcn/components"
 }

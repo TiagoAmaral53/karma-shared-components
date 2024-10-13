@@ -18,16 +18,10 @@
     "emitDeclarationOnly": true,
     "baseUrl": ".",
     "paths": {
-      "@karma/*": [
-        "src/*"
-      ]
+      "@karma/*": ["src/*"]
     }
   },
-  "include": [
-    "src/**/*",
-    "src/types",
-    "components/**/*"
-  ],
+  "include": ["src/**/*", "src/types", "components/**/*"],
   "exclude": [
     "node_modules",
     "**/*.test.ts",

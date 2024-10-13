@@ -1,1 +1,1 @@
-export { default } from "./Atom";
+export { default } from './Atom';

@@ -1,10 +1,15 @@
-import "./Molecule.scss";
+import './Molecule.scss';
 export interface MoleculeProps {
-    label: string;
+  label: string;
 }
 
 const Molecule = (props: MoleculeProps) => {
-    return <div className="molecule"><h1>This is a molecule</h1>{props.label}</div>;
+  return (
+    <div className="molecule">
+      <h1>This is a molecule</h1>
+      {props.label}
+    </div>
+  );
 };
 
 export default Molecule;

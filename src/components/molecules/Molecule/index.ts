@@ -1,1 +1,1 @@
-export { default } from "./Molecule";
+export { default } from './Molecule';

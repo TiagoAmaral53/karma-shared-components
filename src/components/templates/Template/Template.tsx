@@ -1,10 +1,15 @@
-import "./Template.scss";
+import './Template.scss';
 export interface TemplateProps {
-    label: string;
+  label: string;
 }
 
 const Template = (props: TemplateProps) => {
-    return <div className="template"><h1>This is a template</h1>{props.label}</div>;
+  return (
+    <div className="template">
+      <h1>This is a template</h1>
+      {props.label}
+    </div>
+  );
 };
 
 export default Template;

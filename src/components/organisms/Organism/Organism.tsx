@@ -1,10 +1,15 @@
-import "./Organism.scss";
+import './Organism.scss';
 export interface OrganismProps {
-    label: string;
+  label: string;
 }
 
 const Organism = (props: OrganismProps) => {
-    return <div className="organism"><h1>This is a organism</h1>{props.label}</div>;
+  return (
+    <div className="organism">
+      <h1>This is a organism</h1>
+      {props.label}
+    </div>
+  );
 };
 
 export default Organism;
