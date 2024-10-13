@@ -1,4 +1,4 @@
-//export { default as Button } from "./atoms/Button";
+export { default as Button } from './atoms/Button';
 export { default as Atom } from './atoms/Atom';
 export { default as Molecule } from './molecules/Molecule';
 export { default as Organism } from './organisms/Organism';
