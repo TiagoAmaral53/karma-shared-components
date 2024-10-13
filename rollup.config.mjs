@@ -8,18 +8,51 @@ import postcss from 'rollup-plugin-postcss';
 import alias from '@rollup/plugin-alias';
 import { dirname, resolve as pathResolve } from 'path';
 import { fileURLToPath } from 'url';
-import autoprefixer from 'autoprefixer';
-import scss from 'rollup-plugin-scss'; // Adicione esta linha para importar o plugin SCSS
-import glob from 'glob';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+const externalPlugin = (id) => {
+  const whitelist = ['some-package', 'another-package'];
+
+  console.log('Verificando pacote externo:', id);
+
+  // Ignora todos os pacotes de node_modules, exceto os que estão na whitelist
+  return whitelist.includes(id);
+};
+
+const chunks = (id) => {
+  console.log('manual Chunks', id);
+
+  if (id.includes('node_modules')) {
+    return 'vendor'; // Separar pacotes externos num chunk chamado 'vendor'
+  }
+  if (id.includes('src/components/atoms')) {
+    return 'atoms'; // Agrupar componentes de átomos em um chunk
+  }
+  if (id.includes('src/components/molecules')) {
+    return 'molecules'; // Agrupar componentes de moléculas em outro chunk
+  }
+  if (id.includes('src/components/organisms')) {
+    return 'organisms'; // Organismos em um chunk separado
+  }
+  if (id.includes('src/components/pages')) {
+    return 'organisms'; // Organismos em um chunk separado
+  }
+  if (id.includes('src/components/templates')) {
+    return 'organisms'; // Organismos em um chunk separado
+  }
+  if (id.includes('src/components/ui')) {
+    return 'organisms'; // Organismos em um chunk separado
+  }
+  return null; // Outros componentes ficam no chunk principal
+};
 
 export default [
   {
     //input: './src/index.ts', # compile everything in one file
     input: {
-      global: 'src/global.css',
       index: 'src/components/index.ts',
+      global: 'src/global.css',
     },
     output: [
       /*             {
@@ -32,31 +65,26 @@ export default [
         dir: 'dist/cjs',
         format: 'cjs',
         sourcemap: true,
+        chunkFileNames: 'chunks/[name].js',
         entryFileNames: '[name].js', // Isso define que o nome do arquivo será baseado no nome da entrada
-        chunkFileNames: 'chunks/[name]-[hash].js',
+        manualChunks(id) {
+          return chunks(id);
+        },
       },
       {
         dir: 'dist/esm',
         format: 'es',
         sourcemap: true,
         entryFileNames: '[name].js', // Isso define que o nome do arquivo será baseado no nome da entrada
-        chunkFileNames: 'chunks/[name]-[hash].js',
+        chunkFileNames: 'chunks/[name].js',
+        manualChunks(id) {
+          return chunks(id);
+        },
+        //inlineDynamicImports: true, // Evitar chunks adicionais
       },
     ],
     plugins: [
-      external((id) => {
-        const whitelist = ['some-package', 'another-package'];
-
-        console.log('Verificando pacote externo:', id);
-
-        // Ignora todos os pacotes de node_modules, exceto os que estão na whitelist
-        return (
-          !whitelist.includes(id) &&
-          (id in pkg.dependencies ||
-            id in pkg.peerDependencies ||
-            builtinModules.includes(id))
-        );
-      }),
+      external((id) => externalPlugin(id)),
       alias({
         entries: [
           {
