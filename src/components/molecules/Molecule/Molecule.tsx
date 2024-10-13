@@ -1,3 +1,4 @@
+import "./Molecule.scss";
 export interface MoleculeProps {
     label: string;
 }

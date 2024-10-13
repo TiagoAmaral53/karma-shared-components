@@ -1,3 +1,4 @@
+import "./Page.scss";
 export interface PageProps {
     label: string;
 }

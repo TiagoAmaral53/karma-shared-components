@@ -1,3 +1,4 @@
+import "./Organism.scss";
 export interface OrganismProps {
     label: string;
 }

@@ -1,3 +1,4 @@
+import "./Template.scss";
 export interface TemplateProps {
     label: string;
 }

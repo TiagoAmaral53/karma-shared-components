@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Atom from '../../../../dist/esm/Atom';
+import Atom from './Atom';
 
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

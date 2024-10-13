@@ -1,3 +1,4 @@
+import "./Atom.scss";
 export interface AtomProps {
     label: string;
 }
