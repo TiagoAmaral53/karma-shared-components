@@ -4,7 +4,7 @@ import Button from './index';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'KarmaComponents/Version1',
+  title: 'KarmaComponents/Version1/Button',
   component: Button,
   parameters: {
     layout: 'fullscreen',
