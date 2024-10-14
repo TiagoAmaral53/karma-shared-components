@@ -91,6 +91,10 @@ export default [
             find: '@karma',
             replacement: pathResolve(__dirname, 'src'),
           },
+          {
+            find: '@',
+            replacement: pathResolve(__dirname, 'src'),
+          },
         ],
       }),
       resolve({ extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss'] }),

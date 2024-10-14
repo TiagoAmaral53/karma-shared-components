@@ -18,7 +18,8 @@
     "emitDeclarationOnly": true,
     "baseUrl": ".",
     "paths": {
-      "@karma/*": ["src/*"]
+      "@karma/*": ["src/*"],
+      "@/*": ["src/*"]
     }
   },
   "include": ["src/**/*", "src/types", "components/**/*"],
