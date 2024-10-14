@@ -11,7 +11,7 @@ export const Page: React.FC = () => {
   const [user, setUser] = React.useState<User>();
 
   return (
-    <article>
+    <article className="bg-white">
       <Header
         user={user}
         onLogin={() => setUser({ name: 'Jane Doe' })}
