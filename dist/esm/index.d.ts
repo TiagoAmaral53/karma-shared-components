@@ -31,4 +31,21 @@ interface TemplateProps {
 }
 declare const Template: (props: TemplateProps) => react_jsx_runtime.JSX.Element;
 
-export { Atom, Buttons as Button, Molecule, Organism, Page, Template };
+interface HeaderProps {
+    url?: string;
+    onTitleClick?: () => void;
+    title: string;
+}
+declare const Header: (props: HeaderProps) => react_jsx_runtime.JSX.Element;
+
+interface FooterProps {
+    disclaimer?: string;
+    description?: string;
+    links: {
+        name: string;
+        url: string;
+    }[];
+}
+declare const Footer: (props: FooterProps) => react_jsx_runtime.JSX.Element;
+
+export { Atom, Buttons as Button, Footer, Header, Molecule, Organism, Page, Template };

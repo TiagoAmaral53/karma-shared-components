@@ -55,6 +55,9 @@ export default {
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
       },
+      fontSize: {
+        xxs: '0.65rem', // Adiciona a classe text-xs-custom que define o tamanho da fonte como 0.5rem
+      },
       keyframes: {
         'accordion-down': {
           from: { height: '0' },
