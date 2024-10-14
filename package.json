@@ -1,6 +1,6 @@
 {
   "name": "karma-shared-components",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Shared library design systems using atomic methodology",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
