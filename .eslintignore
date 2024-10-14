@@ -1,3 +1,4 @@
 tailwind.config.js
 dist
 src/components/ui/*
+storybook-static

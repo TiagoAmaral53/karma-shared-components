@@ -1,0 +1,5 @@
+node_modules
+.next
+accountability-office.sqlite
+accountability-office-dev.sqlite
+storybook-static
