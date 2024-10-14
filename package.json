@@ -27,6 +27,7 @@
     "patch": "npm version patch",
     "minor": "npm version minor",
     "major": "npm version major",
+    "beta": "npm version prerelease --preid=beta",
     "dependency:status": "npx depcheck",
     "find:deadcode": "ts-prune src/ -u --ignore 'src/lib|.next|src/app/api'",
     "build:dockerfile": "docker build --tag 'karma-storybook' ."
