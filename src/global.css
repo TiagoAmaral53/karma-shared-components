@@ -693,6 +693,10 @@ body {
   cursor: pointer;
 }
 
+.scroll-m-20 {
+  scroll-margin: 5rem;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -733,6 +737,10 @@ body {
 
 .border {
   border-width: 1px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
 }
 
 .border-neutral-200 {
@@ -795,8 +803,27 @@ body {
   padding-bottom: 0.75rem;
 }
 
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+
 .text-center {
   text-align: center;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-base {
@@ -809,6 +836,11 @@ body {
   line-height: 1.25rem;
 }
 
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
 .text-xxs {
   font-size: 0.65rem;
 }
@@ -817,12 +849,29 @@ body {
   font-weight: 700;
 }
 
+.font-extrabold {
+  font-weight: 800;
+}
+
 .font-medium {
   font-weight: 500;
 }
 
+.font-semibold {
+  font-weight: 600;
+}
+
 .uppercase {
   text-transform: uppercase;
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-blue-500 {
@@ -848,6 +897,10 @@ body {
   color: hsl(var(--primary-foreground));
 }
 
+.text-opacity-50 {
+  --tw-text-opacity: 0.5;
+}
+
 .underline-offset-4 {
   text-underline-offset: 4px;
 }
@@ -858,6 +911,12 @@ body {
 
 .ring-offset-white {
   --tw-ring-offset-color: #fff;
+}
+
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+    var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
+    var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition-colors {
@@ -907,6 +966,10 @@ body {
 
 .duration-300 {
   animation-duration: 300ms;
+}
+
+.first\:mt-0:first-child {
+  margin-top: 0px;
 }
 
 .hover\:bg-neutral-100:hover {
@@ -1035,4 +1098,11 @@ body {
 .dark\:focus-visible\:ring-neutral-300:focus-visible:is(.dark *) {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(212 212 212 / var(--tw-ring-opacity));
+}
+
+@media (min-width: 1024px) {
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
 }

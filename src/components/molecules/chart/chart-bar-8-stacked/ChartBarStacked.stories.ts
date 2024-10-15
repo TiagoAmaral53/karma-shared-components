@@ -1,13 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Button from './index';
+import ChartBarStacked from './index';
+import { mockDataChart } from '../../../../../.storybook/data';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'KarmaComponents/Version1/Atom/Button',
-  component: Button,
+  title: 'KarmaComponents/Development/ChartBarStacked',
+  component: ChartBarStacked,
   parameters: {
-    layout: 'centered',
+    layout: '',
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
@@ -15,25 +16,13 @@ const meta = {
 
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {
-    label: 'testing',
+    chartTitle: 'ChartBarStacked',
+    data: mockDataChart.data,
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof ChartBarStacked>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Component: Story = {
-  args: {
-    label: 'test',
-  },
-};
-
-export const Component1: Story = {
-  args: {
-    label: 'trigger',
-    onClick: () => {
-      alert('hello world');
-    },
-  },
-};
+export const Component: Story = {};
