@@ -7,12 +7,15 @@
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/esm/types/index.d.ts"
     },
     "./client-only": {
       "import": "./dist/esm/client-only.js",
-      "require": "./dist/cjs/client-only.js"
-    }
+      "require": "./dist/cjs/client-only.js",
+      "types": "./dist/esm/types/client-only.d.ts"
+    },
+    "./esm/karma.css": "./dist/esm/karma.css"
   },
   "files": [
     "dist"
