@@ -8,7 +8,7 @@ const meta = {
   title: 'KarmaComponents/Development/ChartLine3',
   component: ChartLine3,
   parameters: {
-    layout: '',
+    layout: 'fullscreen',
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],

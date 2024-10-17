@@ -7,7 +7,7 @@ const meta = {
   title: 'KarmaComponents/Development/Footer',
   component: Footer,
   parameters: {
-    layout: '',
+    layout: 'fullscreen',
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
