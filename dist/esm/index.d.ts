@@ -38,6 +38,16 @@ interface HeaderProps {
 }
 declare const Header: (props: HeaderProps) => react_jsx_runtime.JSX.Element;
 
+interface FooterProps {
+    disclaimer?: string;
+    description?: string;
+    links: {
+        name: string;
+        url: string;
+    }[];
+}
+declare const Footer: (props: FooterProps) => react_jsx_runtime.JSX.Element;
+
 interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
     level?: 1 | 2 | 3 | 4 | 5;
     children?: React.ReactNode;
@@ -45,4 +55,4 @@ interface TitleProps extends React.HTMLAttributes<HTMLHeadingElement> {
 }
 declare const Title: ({ level, type, children, ...rest }: TitleProps) => react_jsx_runtime.JSX.Element;
 
-export { Atom, Buttons as Button, Header, Molecule, Organism, Page, Template, Title };
+export { Atom, Buttons as Button, Footer, Header, Molecule, Organism, Page, Template, Title };
