@@ -8,14 +8,14 @@
     ".": {
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js",
-      "types": "./dist/esm/types/index.d.ts"
+      "types": "./dist/types/index.d.ts"
     },
     "./client-only": {
       "import": "./dist/esm/client-only.js",
       "require": "./dist/cjs/client-only.js",
-      "types": "./dist/esm/types/client-only.d.ts"
+      "types": "./dist/types/client-only.d.ts"
     },
-    "./esm/karma.css": "./dist/esm/karma.css"
+    "./dist/esm/karma.css": "./dist/esm/karma.css"
   },
   "files": [
     "dist"
@@ -27,7 +27,7 @@
     "format": "prettier . --write",
     "parse": "tsc --noEmit && npm run format && npm run lint && npm run lint:fix",
     "test": "jest",
-    "rollup": "rm -rf dist && tsc && rollup -c && rm -rf dist/types",
+    "rollup": "rm -rf dist && tsc && rollup -c",
     "rollup:watch": "rm -rf dist && tsc && rollup --config --watch && rm -rf dist/types",
     "build": "npm run build:tailwind && npm run parse && npm run test && npm run rollup",
     "build:watch": "npm run build:tailwind && npm run parse && npm run test && npm run rollupWatch",

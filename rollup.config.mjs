@@ -21,9 +21,17 @@ const externalPlugin = (id) => {
 };
 
 const chunks = (id) => {
-  console.log('manual Chunks', id);
+  if (id.includes('src/components/molecules/chart')) {
+    console.log('chunck-client-only', id);
+    return 'chunck-client-only';
+  }
+  if (id.includes('client-only.ts')) {
+    console.log('client-only', id);
+    return 'client-only'; // Agrupar componentes de átomos em um chunk
+  }
 
   if (id.includes('node_modules')) {
+    console.log('node_modules', id);
     return 'vendor'; // Separar pacotes externos num chunk chamado 'vendor'
   }
   if (id.includes('src/components/atoms')) {
@@ -44,7 +52,9 @@ const chunks = (id) => {
   if (id.includes('src/components/ui')) {
     return 'ui'; // Organismos em um chunk separado
   }
-  return null; // Outros componentes ficam no chunk principal
+  console.log('other', id);
+
+  return 'chunck'; // Outros componentes ficam no chunk principal
 };
 
 export default [
@@ -52,6 +62,7 @@ export default [
     //input: './src/index.ts', # compile everything in one file
     input: {
       index: 'src/components/index.ts',
+      client_only: 'src/components/client-only.ts',
       global: 'src/global.css',
     },
     output: [
@@ -115,8 +126,12 @@ export default [
     ],
   },
   {
-    input: 'dist/types/index.d.ts', // Mude isso para apontar para o diretório correto
-    output: [{ file: 'dist/esm/index.d.ts', format: 'es' }], // Gera o bundle das declarações
+    // Gera os tipos a partir dos entry points
+    input: {
+      index: 'src/components/index.ts',
+      client_only: 'src/components/client-only.ts',
+    },
+    output: [{ dir: 'dist/types', format: 'es' }], // Gera o bundle das declarações
     plugins: [dts()],
     external: [/\.css$/, /\.scss$/], // Ignorar arquivos CSS/SCSS ao gerar declarações de tipos
   },
