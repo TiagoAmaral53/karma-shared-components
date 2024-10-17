@@ -13,7 +13,7 @@
     "sourceMap": true,
     "declarationDir": "./dist/types", // Diretório onde as declarações serão geradas
     "outDir": "./dist",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
     "baseUrl": ".",

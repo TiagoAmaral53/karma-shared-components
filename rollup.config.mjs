@@ -62,7 +62,7 @@ export default [
     //input: './src/index.ts', # compile everything in one file
     input: {
       index: 'src/components/index.ts',
-      client_only: 'src/components/client-only.ts',
+      'client-only': 'src/components/client-only.ts',
       global: 'src/global.css',
     },
     output: [
@@ -129,9 +129,9 @@ export default [
     // Gera os tipos a partir dos entry points
     input: {
       index: 'src/components/index.ts',
-      client_only: 'src/components/client-only.ts',
+      'client-only': 'src/components/client-only.ts',
     },
-    output: [{ dir: 'dist/types', format: 'es' }], // Gera o bundle das declarações
+    output: [{ dir: 'dist/esm', format: 'es' }], // Gera o bundle das declarações
     plugins: [dts()],
     external: [/\.css$/, /\.scss$/], // Ignorar arquivos CSS/SCSS ao gerar declarações de tipos
   },
