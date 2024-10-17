@@ -25,7 +25,9 @@ const Title = ({
     return (
       <h1
         {...rest}
-        className={cn(`${scroll} text-4xl font-extrabold ${trackingTight} lg:text-5xl${restClasses}`)}
+        className={cn(
+          `${scroll} text-4xl font-extrabold ${trackingTight} lg:text-5xl${restClasses}`,
+        )}
       >
         {children}
       </h1>
@@ -34,7 +36,9 @@ const Title = ({
     return (
       <h2
         {...rest}
-        className={cn(`${scroll} border-b pb-2 text-3xl ${extrabold} ${trackingTight} first:mt-0${restClasses}`)}
+        className={cn(
+          `${scroll} border-b pb-2 text-3xl ${extrabold} ${trackingTight} first:mt-0${restClasses}`,
+        )}
       >
         {children}
       </h2>
@@ -43,7 +47,9 @@ const Title = ({
     return (
       <h4
         {...rest}
-        className={cn(`${scroll} text-xl ${extrabold} ${trackingTight}${restClasses}`)}
+        className={cn(
+          `${scroll} text-xl ${extrabold} ${trackingTight}${restClasses}`,
+        )}
       >
         {children}
       </h4>
@@ -52,7 +58,9 @@ const Title = ({
     return (
       <h5
         {...rest}
-        className={cn(`${scroll} text-base ${extrabold} ${trackingTight}${restClasses}`)}
+        className={cn(
+          `${scroll} text-base ${extrabold} ${trackingTight}${restClasses}`,
+        )}
       >
         {children}
       </h5>
@@ -61,7 +69,9 @@ const Title = ({
     return (
       <h3
         {...rest}
-        className={cn(`${scroll} text-2xl ${extrabold} ${trackingTight}${restClasses}`)}
+        className={cn(
+          `${scroll} text-2xl ${extrabold} ${trackingTight}${restClasses}`,
+        )}
       >
         {children}
       </h3>
