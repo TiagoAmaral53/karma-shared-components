@@ -4,22 +4,18 @@
   "description": "Shared library design systems using atomic methodology",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/cjs/index.js",
-      "types": "./dist/esm/index.d.ts"
-    },
-    "./client-only": {
-      "import": "./dist/esm/client-only.js",
-      "require": "./dist/cjs/client-only.js",
-      "types": "./dist/esm/client-only.d.ts"
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
     },
     "./dist/esm/karma.css": "./dist/esm/karma.css"
   },
   "files": [
     "dist"
   ],
-  "types": "dist/esm/index.d.ts",
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

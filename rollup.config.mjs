@@ -21,15 +21,15 @@ const externalPlugin = (id) => {
 };
 
 const chunks = (id) => {
-  if (id.includes('src/components/molecules/chart')) {
-    console.log('chunck-client-only', id);
-    return 'chunck-client-only';
-  }
-  if (id.includes('client-only.ts')) {
-    console.log('client-only', id);
-    return 'client-only'; // Agrupar componentes de átomos em um chunk
-  }
-
+  /*   if (id.includes('src/components/molecules/chart')) {
+      console.log('chunck-client-only', id);
+      return 'chunck-client-only';
+    }
+    if (id.includes('client-only.ts')) {
+      console.log('client-only', id);
+      return 'client-only'; // Agrupar componentes de átomos em um chunk
+    }
+   */
   if (id.includes('node_modules')) {
     console.log('node_modules', id);
     return 'vendor'; // Separar pacotes externos num chunk chamado 'vendor'
@@ -62,7 +62,7 @@ export default [
     //input: './src/index.ts', # compile everything in one file
     input: {
       index: 'src/components/index.ts',
-      'client-only': 'src/components/client-only.ts',
+      //'client-only': 'src/components/client-only.ts',
       global: 'src/global.css',
     },
     output: [
@@ -129,7 +129,7 @@ export default [
     // Gera os tipos a partir dos entry points
     input: {
       index: 'src/components/index.ts',
-      'client-only': 'src/components/client-only.ts',
+      //'client-only': 'src/components/client-only.ts',
     },
     output: [{ dir: 'dist/esm', format: 'es' }], // Gera o bundle das declarações
     plugins: [dts()],
