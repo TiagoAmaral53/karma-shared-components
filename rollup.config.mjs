@@ -61,7 +61,7 @@ export default [
   {
     //input: './src/index.ts', # compile everything in one file
     input: {
-      index: 'src/components/index.ts',
+      index: 'src/index.ts',
       //'client-only': 'src/components/client-only.ts',
       global: 'src/global.css',
     },
@@ -72,16 +72,16 @@ export default [
                             format: 'es',
                             sourcemap: true,
                         }, */
-      {
-        dir: 'dist/cjs',
-        format: 'cjs',
-        sourcemap: true,
-        chunkFileNames: 'chunks/[name].js',
-        entryFileNames: '[name].js', // Isso define que o nome do arquivo será baseado no nome da entrada
-        manualChunks(id) {
-          return chunks(id);
-        },
-      },
+      /*  IMPORTANT: disabled the commonJS build for now. Since is not being used     {
+              dir: 'dist/cjs',
+              format: 'cjs',
+              sourcemap: true,
+              chunkFileNames: 'chunks/[name].js',
+              entryFileNames: '[name].js', // Isso define que o nome do arquivo será baseado no nome da entrada
+              manualChunks(id) {
+                return chunks(id);
+              },
+            }, */
       {
         dir: 'dist/esm',
         format: 'es',
@@ -128,7 +128,7 @@ export default [
   {
     // Gera os tipos a partir dos entry points
     input: {
-      index: 'src/components/index.ts',
+      index: 'src/index.ts',
       //'client-only': 'src/components/client-only.ts',
     },
     output: [{ dir: 'dist/esm', format: 'es' }], // Gera o bundle das declarações
