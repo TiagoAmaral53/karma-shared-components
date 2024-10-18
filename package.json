@@ -12,7 +12,7 @@
       "require": "./dist/cjs/index.js"
     },
     "./client": {
-      "types": "./dist/types/index.d.ts",
+      "types": "./dist/types/client-only.d.ts",
       "import": "./dist/esm/client-only.js",
       "require": "./dist/cjs/client-only.js"
     },
