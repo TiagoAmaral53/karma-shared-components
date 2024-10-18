@@ -86,7 +86,13 @@ export default [
         dir: 'dist/esm',
         format: 'es',
         sourcemap: true,
-        entryFileNames: '[name].js', // Isso define que o nome do arquivo será baseado no nome da entrada
+        entryFileNames: (chunkInfo) => {
+          // Se for o 'client-only', coloca na pasta 'feature'
+          if (chunkInfo.name === 'client-only') {
+            return 'feature/[name].js'; // Salva na pasta 'dist/esm/feature'
+          }
+          return '[name].js'; // Outros arquivos permanecem em 'dist/esm'
+        },
         chunkFileNames: 'chunks/[name].js',
         manualChunks(id) {
           return chunks(id);
