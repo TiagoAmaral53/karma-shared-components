@@ -4,10 +4,10 @@
   "description": "Shared library design systems using atomic methodology",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/esm/index.d.ts",
+      "types": "./dist/types/index.d.ts",
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
     },
@@ -22,8 +22,8 @@
     "format": "prettier . --write",
     "parse": "tsc --noEmit && npm run format && npm run lint && npm run lint:fix",
     "test": "jest",
-    "rollup": "rm -rf dist && tsc && rollup -c && rm -rf dist/types",
-    "rollup:watch": "rm -rf dist && tsc && rollup --config --watch && rm -rf dist/types",
+    "rollup": "rm -rf dist && tsc && rollup -c",
+    "rollup:watch": "rm -rf dist && tsc && rollup --config --watch",
     "build": "npm run build:tailwind && npm run parse && npm run test && npm run rollup",
     "build:watch": "npm run build:tailwind && npm run parse && npm run test && npm run rollupWatch",
     "outdated": "npm outdated",
