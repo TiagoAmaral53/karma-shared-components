@@ -20,15 +20,15 @@ const externalPlugin = (id) => {
 };
 
 const chunks = (id) => {
-  /*   if (id.includes('src/components/molecules/chart')) {
-      console.log('chunck-client-only', id);
-      return 'chunck-client-only';
-    }
-    if (id.includes('client-only.ts')) {
-      console.log('client-only', id);
-      return 'client-only'; // Agrupar componentes de átomos em um chunk
-    }
-   */
+  if (id.includes('src/components/molecules/chart')) {
+    console.log('chunck-client-only', id);
+    return 'chunck-client-only';
+  }
+  if (id.includes('client-only.ts')) {
+    console.log('client-only', id);
+    return 'client-only'; // Agrupar componentes de átomos em um chunk
+  }
+
   if (id.includes('node_modules')) {
     console.log('node_modules', id);
     return 'vendor';
@@ -60,7 +60,7 @@ export default [
   {
     input: {
       index: 'src/index.ts',
-      //'client-only': 'src/components/client-only.ts',
+      'client-only': 'src/client-only.ts',
       global: 'src/global.css',
     },
     output: [
