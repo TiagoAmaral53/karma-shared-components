@@ -113,7 +113,7 @@ export default [
       //index: './dist/types/index.d.ts',
       'client-only': 'src/client-only.ts',
     },
-    output: [{ dir: 'dist/types', format: 'es' }], // Gera o bundle das declarações
+    output: [{ dir: 'dist/esm', format: 'es' }], // Gera o bundle das declarações
     plugins: [dts()],
     external: [/\.css$/, /\.scss$/], // Ignorar arquivos CSS/SCSS ao gerar declarações de tipos
   },
