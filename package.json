@@ -11,11 +11,7 @@
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
     },
-    "./client": {
-      "types": "./dist/types/client-only.d.ts",
-      "import": "./dist/esm/client-only.js",
-      "require": "./dist/cjs/client-only.js"
-    },
+    "./dist/esm/client-only": "./dist/esm/client-only.js",
     "./dist/esm/karma.css": "./dist/esm/karma.css"
   },
   "files": [
