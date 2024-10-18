@@ -125,14 +125,14 @@ export default [
       terser(),
     ],
   },
-  {
-    // Gera os tipos a partir dos entry points
-    input: {
-      index: './dist/types/index.d.ts',
-      //'client-only': 'src/components/client-only.ts',
-    },
-    output: [{ dir: 'dist/types', format: 'es' }], // Gera o bundle das declarações
-    plugins: [dts()],
-    external: [/\.css$/, /\.scss$/], // Ignorar arquivos CSS/SCSS ao gerar declarações de tipos
-  },
+  /*   {
+      // Gera os tipos a partir dos entry points
+      input: {
+        index: './dist/types/index.d.ts',
+        //'client-only': 'src/components/client-only.ts',
+      },
+      output: [{ dir: 'dist/types', format: 'es' }], // Gera o bundle das declarações
+      plugins: [dts()],
+      external: [/\.css$/, /\.scss$/], // Ignorar arquivos CSS/SCSS ao gerar declarações de tipos
+    }, */
 ];
