@@ -3,6 +3,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
+// import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
 import alias from '@rollup/plugin-alias';
 import { dirname, resolve as pathResolve } from 'path';
@@ -31,48 +32,66 @@ const chunks = (id) => {
    */
   if (id.includes('node_modules')) {
     console.log('node_modules', id);
-    return 'vendor';
+    return 'vendor'; // Separar pacotes externos num chunk chamado 'vendor'
   }
   if (id.includes('src/components/atoms')) {
-    return 'atoms';
+    return 'atoms'; // Agrupar componentes de átomos em um chunk
   }
   if (id.includes('src/components/molecules')) {
-    return 'molecules';
+    return 'molecules'; // Agrupar componentes de moléculas em outro chunk
   }
   if (id.includes('src/components/organisms')) {
-    return 'organisms';
+    return 'organisms'; // Organismos em um chunk separado
   }
   if (id.includes('src/components/pages')) {
-    return 'pages';
+    return 'pages'; // Organismos em um chunk separado
   }
   if (id.includes('src/components/templates')) {
-    return 'templates';
+    return 'templates'; // Organismos em um chunk separado
   }
   if (id.includes('src/components/ui')) {
-    return 'ui';
+    return 'ui'; // Organismos em um chunk separado
   }
   console.log('other', id);
 
-  return 'chunck';
+  return 'chunck'; // Outros componentes ficam no chunk principal
 };
 
 export default [
   {
+    //input: './src/index.ts', # compile everything in one file
     input: {
       index: 'src/index.ts',
       //'client-only': 'src/components/client-only.ts',
       global: 'src/global.css',
     },
     output: [
+      /*             {
+                            // output to directory
+                            file: packageJson.module,
+                            format: 'es',
+                            sourcemap: true,
+                        }, */
+      /*  IMPORTANT: disabled the commonJS build for now. Since is not being used     {
+              dir: 'dist/cjs',
+              format: 'cjs',
+              sourcemap: true,
+              chunkFileNames: 'chunks/[name].js',
+              entryFileNames: '[name].js', // Isso define que o nome do arquivo será baseado no nome da entrada
+              manualChunks(id) {
+                return chunks(id);
+              },
+            }, */
       {
         dir: 'dist/esm',
         format: 'es',
         sourcemap: true,
-        entryFileNames: '[name].js',
+        entryFileNames: '[name].js', // Isso define que o nome do arquivo será baseado no nome da entrada
         chunkFileNames: 'chunks/[name].js',
         manualChunks(id) {
           return chunks(id);
         },
+        //inlineDynamicImports: true, // Evitar chunks adicionais
       },
     ],
     plugins: [
@@ -106,4 +125,14 @@ export default [
       terser(),
     ],
   },
+  /*   {
+      // Gera os tipos a partir dos entry points
+      input: {
+        index: './dist/types/index.d.ts',
+        //'client-only': 'src/components/client-only.ts',
+      },
+      output: [{ dir: 'dist/types', format: 'es' }], // Gera o bundle das declarações
+      plugins: [dts()],
+      external: [/\.css$/, /\.scss$/], // Ignorar arquivos CSS/SCSS ao gerar declarações de tipos
+    }, */
 ];
