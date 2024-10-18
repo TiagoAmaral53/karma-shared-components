@@ -26,6 +26,7 @@ const config: StorybookConfig = {
     // Adicionar o alias
     config.resolve.alias = {
       '@karma': path.resolve(__dirname, '../src'),
+      '@': path.resolve(__dirname, '../src'),
       ...config.resolve.alias,
     };
     return config;

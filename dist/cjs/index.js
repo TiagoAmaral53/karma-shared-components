@@ -1,2 +1,0 @@
-"use strict";var e=require("./chunks/atoms.js"),r=require("./chunks/molecules.js"),s=require("./chunks/organisms.js"),u=require("./chunks/pages.js"),t=require("./chunks/templates.js");require("./chunks/ui.js"),require("react"),require("./chunks/vendor.js"),require("react/jsx-runtime"),exports.Atom=e.Atom,exports.Button=e.Buttons,exports.Molecule=r.Molecule,exports.Organism=s.Organism,exports.Page=u.Page,exports.Template=t.Template;
-//# sourceMappingURL=index.js.map

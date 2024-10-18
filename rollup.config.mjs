@@ -3,11 +3,11 @@ import resolve from '@rollup/plugin-node-resolve';
 import external from 'rollup-plugin-peer-deps-external';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
-import dts from 'rollup-plugin-dts';
 import postcss from 'rollup-plugin-postcss';
 import alias from '@rollup/plugin-alias';
 import { dirname, resolve as pathResolve } from 'path';
 import { fileURLToPath } from 'url';
+import dts from 'rollup-plugin-dts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -21,66 +21,59 @@ const externalPlugin = (id) => {
 };
 
 const chunks = (id) => {
-  console.log('manual Chunks', id);
+  if (id.includes('src/components/molecules/chart')) {
+    console.log('chunck-client-only', id);
+    return 'chunck-client-only';
+  }
+  if (id.includes('client-only.ts')) {
+    console.log('client-only', id);
+    return 'client-only'; // Agrupar componentes de átomos em um chunk
+  }
 
   if (id.includes('node_modules')) {
-    return 'vendor'; // Separar pacotes externos num chunk chamado 'vendor'
+    console.log('node_modules', id);
+    return 'vendor';
   }
   if (id.includes('src/components/atoms')) {
-    return 'atoms'; // Agrupar componentes de átomos em um chunk
+    return 'atoms';
   }
   if (id.includes('src/components/molecules')) {
-    return 'molecules'; // Agrupar componentes de moléculas em outro chunk
+    return 'molecules';
   }
   if (id.includes('src/components/organisms')) {
-    return 'organisms'; // Organismos em um chunk separado
+    return 'organisms';
   }
   if (id.includes('src/components/pages')) {
-    return 'pages'; // Organismos em um chunk separado
+    return 'pages';
   }
   if (id.includes('src/components/templates')) {
-    return 'templates'; // Organismos em um chunk separado
+    return 'templates';
   }
   if (id.includes('src/components/ui')) {
-    return 'ui'; // Organismos em um chunk separado
+    return 'ui';
   }
-  return null; // Outros componentes ficam no chunk principal
+  console.log('other', id);
+
+  return 'chunck';
 };
 
 export default [
   {
-    //input: './src/index.ts', # compile everything in one file
     input: {
-      index: 'src/components/index.ts',
+      index: 'src/index.ts',
+      'client-only': 'src/client-only.ts',
       global: 'src/global.css',
     },
     output: [
-      /*             {
-                            // output to directory
-                            file: packageJson.module,
-                            format: 'es',
-                            sourcemap: true,
-                        }, */
-      {
-        dir: 'dist/cjs',
-        format: 'cjs',
-        sourcemap: true,
-        chunkFileNames: 'chunks/[name].js',
-        entryFileNames: '[name].js', // Isso define que o nome do arquivo será baseado no nome da entrada
-        manualChunks(id) {
-          return chunks(id);
-        },
-      },
       {
         dir: 'dist/esm',
         format: 'es',
         sourcemap: true,
-        entryFileNames: '[name].js', // Isso define que o nome do arquivo será baseado no nome da entrada
+        entryFileNames: '[name].js',
         chunkFileNames: 'chunks/[name].js',
         manualChunks(id) {
           return chunks(id);
         },
-        //inlineDynamicImports: true, // Evitar chunks adicionais
       },
     ],
     plugins: [
@@ -89,6 +82,10 @@ export default [
         entries: [
           {
             find: '@karma',
+            replacement: pathResolve(__dirname, 'src'),
+          },
+          {
+            find: '@',
             replacement: pathResolve(__dirname, 'src'),
           },
         ],
@@ -111,8 +108,12 @@ export default [
     ],
   },
   {
-    input: 'dist/types/index.d.ts', // Mude isso para apontar para o diretório correto
-    output: [{ file: 'dist/esm/index.d.ts', format: 'es' }], // Gera o bundle das declarações
+    // Gera os tipos a partir dos entry points
+    input: {
+      //index: './dist/types/index.d.ts',
+      'client-only': 'src/client-only.ts',
+    },
+    output: [{ dir: 'dist/esm', format: 'es' }], // Gera o bundle das declarações
     plugins: [dts()],
     external: [/\.css$/, /\.scss$/], // Ignorar arquivos CSS/SCSS ao gerar declarações de tipos
   },

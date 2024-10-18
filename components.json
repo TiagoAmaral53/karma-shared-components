@@ -1,6 +1,7 @@
 {
   "style": "default",
   "rsc": true,
+  "tsx": true,
   "tailwind": {
     "config": "tailwind.config.js",
     "css": "src/globals.css",
@@ -10,6 +11,5 @@
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils"
-  },
-  "componentDirectory": "src/shadcn/components"
+  }
 }

@@ -13,12 +13,13 @@
     "sourceMap": true,
     "declarationDir": "./dist/types", // Diretório onde as declarações serão geradas
     "outDir": "./dist",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true,
     "baseUrl": ".",
     "paths": {
-      "@karma/*": ["src/*"]
+      "@karma/*": ["src/*"],
+      "@/*": ["src/*"]
     }
   },
   "include": ["src/**/*", "src/types", "components/**/*"],

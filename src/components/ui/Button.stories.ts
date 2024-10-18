@@ -5,10 +5,10 @@ import { sizeArgType, variantArgType } from '../../../.storybook/type';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Shadcnui/UI',
+  title: 'Shadcnui/UI/Button',
   component: Button,
   parameters: {
-    layout: 'fullscreen',
+    layout: 'centered',
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],

@@ -1,20 +1,16 @@
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    'src/**/*.{ts,tsx}',
-    'app/**/*.{ts,tsx}',
-    'components/**/*.{ts,tsx}',
+export default {
+  darkMode: ['class'],
+  content: ['./src/**/*.{js,ts,jsx,tsx}', './stories/**/*.{js,ts,jsx,tsx}'],
+  safelist: [
+    'dark:text-neutral-50',
+    'hover:underline',
+    'text-center',
+    // Adiciona manualmente classes que você usa de forma dinâmica
   ],
   theme: {
-    container: {
-      center: true,
-      padding: '2rem',
-      screens: {
-        '2xl': '1400px',
-      },
-    },
     extend: {
       colors: {
         border: 'hsl(var(--border))',
@@ -52,12 +48,15 @@ module.exports = {
         },
       },
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
+        lg: `var(--radius)`,
+        md: `calc(var(--radius) - 2px)`,
         sm: 'calc(var(--radius) - 4px)',
       },
       fontFamily: {
         sans: ['var(--font-sans)', ...fontFamily.sans],
+      },
+      fontSize: {
+        xxs: '0.65rem', // Adiciona a classe text-xs-custom que define o tamanho da fonte como 0.5rem
       },
       keyframes: {
         'accordion-down': {

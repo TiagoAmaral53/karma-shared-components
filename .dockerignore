@@ -3,3 +3,4 @@ node_modules
 accountability-office.sqlite
 accountability-office-dev.sqlite
 storybook-static
+package-lock.json

@@ -1,2 +1,2 @@
-export{A as Atom,B as Button}from"./chunks/atoms.js";export{M as Molecule}from"./chunks/molecules.js";export{O as Organism}from"./chunks/organisms.js";export{P as Page}from"./chunks/pages.js";export{T as Template}from"./chunks/templates.js";import"./chunks/ui.js";import"react";import"./chunks/vendor.js";import"react/jsx-runtime";
+export{A as Atom,B as Button,T as Title}from"./chunks/atoms.js";export{F as Footer,H as Header,M as Molecule}from"./chunks/molecules.js";export{O as Organism}from"./chunks/organisms.js";export{P as Page}from"./chunks/pages.js";export{T as Template}from"./chunks/templates.js";import"./chunks/chunck.js";import"./chunks/vendor.js";import"react";import"react/jsx-runtime";import"./chunks/ui.js";
 //# sourceMappingURL=index.js.map

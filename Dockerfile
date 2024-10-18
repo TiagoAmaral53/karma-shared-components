@@ -31,4 +31,7 @@ RUN mkdir .cache
 RUN chown -R nextjs:nodejs /app/.cache
 RUN chmod 755 /app/.cache
 
+RUN chown -R nextjs:nodejs /app/storybook-static
+RUN chmod 755 /app/storybook-static
+
 USER nextjs
