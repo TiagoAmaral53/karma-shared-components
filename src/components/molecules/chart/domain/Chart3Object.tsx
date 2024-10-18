@@ -1,4 +1,3 @@
-'use client';
 import { ChartProperty } from './ChartProperty';
 import { Chart3Value } from './Chart3Value';
 

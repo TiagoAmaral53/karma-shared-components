@@ -1,5 +1,3 @@
-'use client';
-
 import { Chart8Value } from './Chart8Value';
 import { ChartProperty } from './ChartProperty';
 

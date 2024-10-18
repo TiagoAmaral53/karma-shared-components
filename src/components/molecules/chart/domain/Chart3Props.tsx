@@ -1,4 +1,3 @@
-'use client';
 import { Chart3Object } from './Chart3Object';
 
 export interface Chart3Props {

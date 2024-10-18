@@ -1,4 +1,3 @@
-'use client';
 export interface Chart3Value {
   line1?: number;
 

@@ -1,4 +1,3 @@
-'use client';
 export interface Chart8Value {
   line1?: number;
 
